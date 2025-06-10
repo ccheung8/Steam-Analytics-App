@@ -1,0 +1,7 @@
+POST https://api.steampowered.com/IStoreService/GetAppInfo/v1/ HTTP/1.1
+Content-Type: application/json
+
+{
+  "key": "67FFC57ED2F18BDB8055BBE626E5505E",
+  "appid": 440
+}
