@@ -8,7 +8,7 @@ export default function useSteamAnalytics() {
 
   async function getNewAndTrending() {
     if (newAndTrending.length <= 0) {
-      const newAndTrending = await axios.get("http://localhost:8888/api");
+      const newAndTrending = await axios.get("http://localhost:8888/api/featured");
 
       setNewAndTrending(newAndTrending.data);
     }

@@ -11,7 +11,7 @@ import App from './App.jsx'
 // CAN USE https://steamspy.com TO GET USER TAGS AND MORE DATA
 
 // 1. HOME PAGE: GET https://store.steampowered.com/api/featured to show featured apps
-// 2. SEARCH: GET https://steamcommunity.com/actions/SearchApps/:query to find IDs that include search query
+// 2. SEARCH: GET https://steamcommunity.com/api/storesearch/?term={query}&l=english&cc=US to find IDs that include search query
 // 3. LOOK INTO STEAMSPY TO DISPLAY TAGS, GENRE, ETC.
 createRoot(document.getElementById('root')).render(
   <StrictMode>
