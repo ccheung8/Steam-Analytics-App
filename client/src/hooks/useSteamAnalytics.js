@@ -4,21 +4,18 @@ import { useState, useEffect } from "react";
 const STORE_ENDPOINT = "https://store.steampowered.com/api/";
 
 export default function useSteamAnalytics() {
-  const [featured, setFeatured] = useState([]);
+  const [newAndTrending, setNewAndTrending] = useState([]);
 
-  async function getFeatured() {
-    if (featured.length <= 0) {
-      const newAndTrending = await axios.get(
-        "https://store.steampowered.com/api/featured"
-      );
+  async function getNewAndTrending() {
+    if (newAndTrending.length <= 0) {
+      const newAndTrending = await axios.get("http://localhost:8888/api");
 
-      console.log(newAndTrending.data);
-      // setFeatured();
+      setNewAndTrending(newAndTrending.data);
     }
   }
 
   return {
-    featured,
-    getFeatured,
+    newAndTrending,
+    getNewAndTrending,
   };
 }
