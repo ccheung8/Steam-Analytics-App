@@ -21,4 +21,15 @@ router.get("/topsellers", async (_, res) => {
   res.json(topSelling.data);
 });
 
+// get genre
+router.get("/genre/:genrename", async (req, res) => {
+  const genre = req.params.genrename;
+
+  const gamesInGenre = await axios.get(
+    `https://store.steampowered.com/api/getappsingenre/?genre=${genre}&cc=us&l=english`
+  );
+
+  res.json(gamesInGenre.data);
+});
+
 export default router;
