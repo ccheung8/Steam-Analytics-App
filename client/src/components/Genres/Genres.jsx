@@ -4,9 +4,23 @@ import useSteamAPI from "../../hooks/useSteamAPI";
 // https://partner.steamgames.com/doc/store/tags
 
 export default function Genres() {
-  const gamesInGenre = useSteamAPI("genre/strategy");
-
-  console.log(gamesInGenre);
+  // const gamesInGenre = useSteamAPI("genre/strategy");
+  // genre IDs I don't want to display
+  const miscGenreIDs = [
+    "Accounting",
+    "Audio Production",
+    "Education",
+    "Photo Editing",
+    "Software Training",
+    "Utilities",
+    "Video Production",
+    "Web Publishing",
+    "Controller support",
+    "Mac OS X",
+    "Linux",
+    "genre_demos",
+  ];
+  const genres = useSteamAPI("genres").genres;
 
   return (
     <div>
@@ -17,6 +31,11 @@ export default function Genres() {
         genre the developer believes the game falls under. Select a genre to
         browse games by genre.
       </p>
+      {genres.map((genre) => {
+        /* returns button element if genre is not in misc genres */
+        if (!miscGenreIDs.includes(genre.id))
+          return <button key={genre.id}>{genre.name}</button>;
+      })}
     </div>
   );
 }

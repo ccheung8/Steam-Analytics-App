@@ -21,6 +21,15 @@ router.get("/topsellers", async (_, res) => {
   res.json(topSelling.data);
 });
 
+// get genre list
+router.get("/genres", async (_, res) => {
+  const genres = await axios.get(
+    "https://store.steampowered.com/api/getgenrelist/?cc=us&l=english"
+  );
+
+  res.json(genres.data);
+});
+
 // get genre
 router.get("/genre/:genrename", async (req, res) => {
   const genre = req.params.genrename;
