@@ -30,15 +30,23 @@ router.get("/genres", async (_, res) => {
   res.json(genres.data);
 });
 
-// get genre
+// get games based on genre
 router.get("/genre/:genrename", async (req, res) => {
   const genre = req.params.genrename;
-
   const gamesInGenre = await axios.get(
     `https://store.steampowered.com/api/getappsingenre/?genre=${genre}&cc=us&l=english`
   );
 
   res.json(gamesInGenre.data);
 });
+
+// get tags
+router.get("/tags", async (_, res) => {
+  const tags = await axios.get(
+    "https://store.steampowered.com/tagdata/populartags/english"
+  );
+
+  res.json(tags.data);
+})
 
 export default router;
