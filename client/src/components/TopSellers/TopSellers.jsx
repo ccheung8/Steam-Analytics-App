@@ -12,6 +12,11 @@ export default function TopSellers() {
           <img src={game.tiny_image} alt={"image of " + game.name} />
           <h3>{game.name}</h3>
           <h4>{game.price ? game.price.final / 100 : "Free"}</h4>
+          <h4>
+            {game.platforms.windows && "Windows"}
+            {game.platforms.mac && ", Mac"}
+            {game.platforms.linux && ", Linux"}
+          </h4>
         </div>
       ))}
     </div>
